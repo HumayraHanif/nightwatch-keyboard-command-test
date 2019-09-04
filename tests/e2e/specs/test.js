@@ -7,8 +7,11 @@ module.exports = {
       .url(process.env.VUE_DEV_SERVER_URL)
       .waitForElementVisible('#app', 5000)
       .assert.elementPresent('.hello')
-      .assert.containsText('h1', 'Welcome to Your Vue.js App')
-      .assert.elementCount('img', 1)
+      .assert.elementPresent('#nav > a:nth-child(2)')
+      .click('#nav > a:nth-child(2)')
+      browser.pause(10000)
+      browser.keys([browser.Keys.CONTROL, 'a', browser.Keys.NULL])
+      browser.pause(3000)
       .end()
   }
 }
